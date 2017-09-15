@@ -115,11 +115,6 @@ module.exports = {
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
-        test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
-        enforce: 'pre',
-      },
-      {
         test: /\.(js|jsx)$/,
         enforce: 'pre',
         use: [
@@ -228,6 +223,14 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
+          {
+            test: /\.tsx?$/,
+            loader: "awesome-typescript-loader",
+            options: {
+              transpileOnly: false,
+              reportFiles: ["src/**/*.{ts,tsx}"]
+            }
+          }
           // ** STOP ** Are you adding a new loader?
           // Make sure to add the new loader(s) before the "file" loader.
         ],
