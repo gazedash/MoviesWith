@@ -12,5 +12,5 @@ import AppScreen from '../components/AppScreen';
 //     );
 //   }
 // }
-const mapStateToProps: MapStateToProps<{}, {}> = (state, ownProps) => { return {}; };
+const mapStateToProps: MapStateToProps<{}, {}> = (state, ownProps) => { return { movies: state.movies }; };
 export default connect(mapStateToProps)(AppScreen);

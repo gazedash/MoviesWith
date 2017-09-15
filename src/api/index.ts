@@ -21,17 +21,17 @@ function fetchJson(method: string, args?: Object): Promise<{}> {
   });
 }
 
-const fetchActor = async (query?: string): Promise<{}> =>
+export const fetchActor = async (query?: string): Promise<{}> =>
   fetchJson('search/person', { query });
 
 interface FetchMoviesParams {
   type?: 'movie' | 'tv';
   with_cast?: string | number;
 }
-const fetchMovies =  ({ type = 'movie', ...args }: FetchMoviesParams): Promise<{}> =>
+export const fetchMovies =  ({ type = 'movie', ...args }: FetchMoviesParams): Promise<{}> =>
   fetchJson(`discover/${type}`, args);
 
-const fetchCast = async (id: string | number, type = 'movie'): Promise<{}> =>
+export const fetchCast = async (id: string | number, type = 'movie'): Promise<{}> =>
   fetchJson(`${type}/${id}/credits`);
 
 export default {
