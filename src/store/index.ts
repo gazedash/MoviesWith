@@ -1,5 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import { loadFromStorage } from "../utils";
 
-export default createStore(rootReducer,   applyMiddleware(thunk));
+const preloadedState = loadFromStorage();
+
+export default createStore(rootReducer, preloadedState, applyMiddleware(thunk));
