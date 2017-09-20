@@ -1,5 +1,8 @@
 .MovieList {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* make scroll great again */
+  max-height: 90vh;
+  overflow-y: scroll;
 }
