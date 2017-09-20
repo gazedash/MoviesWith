@@ -31,7 +31,7 @@ export const favMoviesSelector = createSelector(
   ({ type }) => type,
   (movies: MovieType[], fav, type) =>
     type === "combined"
-      ? movies
+      ? filter(({ id }) => !!fav[id], movies)
       : filter(({ id, media_type }) => {
           const inFav = fav[id];
           if (media_type) {
