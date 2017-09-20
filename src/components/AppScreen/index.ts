@@ -1,1 +1,1 @@
-export { default } from './AppScreen';
+export { default, Props } from './AppScreen';
