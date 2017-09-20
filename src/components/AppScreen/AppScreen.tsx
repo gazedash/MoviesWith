@@ -71,11 +71,13 @@ class AppScreen extends React.Component<Props> {
               onClick={this.props.showFavs}
               active={this.props.shouldShowFavs}
             />
-            <Button
-              item={"by all actors only"}
-              onClick={this.props.switchByAll}
-              active={this.props.shouldLoadByAll}
-            />
+            {!this.props.shouldShowFavs && (
+              <Button
+                item={"by all actors only"}
+                onClick={this.props.switchByAll}
+                active={this.props.shouldLoadByAll}
+              />
+            )}
           </div>
         </div>
         <ButtonGroup
