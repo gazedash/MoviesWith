@@ -1,1 +1,24 @@
-.AppScreen {}
+.AppScreen {
+    padding: 10px 20px;
+}
+.ActorHeader {
+    display: flex;
+    justify-content: space-between;
+}
+.AppScreen-search {
+    display: flex;
+}
+.AppScreen-controls {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.AppScreen-header {
+    display: flex;
+    padding: 10px;
+}
+.AppScreen-tabs {
+    display: flex;
+    /* justify-content: flex-start; */
+    margin: 0 25%;
+}
