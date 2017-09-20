@@ -1,5 +1,6 @@
 .Movie {
   display: flex;
+  cursor: pointer;
 }
 .MovieImage {
   width: 342px;
@@ -12,8 +13,10 @@
 .Movie:hover > .Movie-hide-absolute > .Movie-hide {
   display: flex;
   position: absolute;
-  /* top: 45px; */
-  /* right: 10px; */
+}
+.Movie:focus > .Movie-hide-absolute > .Movie-hide {
+  display: flex;
+  position: absolute;
 }
 .Movie-hide {
   display: none;
