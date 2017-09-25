@@ -6,9 +6,10 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { saveState } from "./utils/index";
 import "./index.css";
+import { favMoviesSelector } from "./store/selectors/index";
 
 store.subscribe(() => {
-  saveState({ fav: store.getState().fav, movies: store.getState().movies });
+  saveState({ fav: store.getState().fav, movies: favMoviesSelector(store.getState()) });
 });
 ReactDOM.render(
   <Provider store={store}>
