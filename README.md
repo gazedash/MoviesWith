@@ -1,3 +1,10 @@
+MoviesWith is a web service that allows you to quickly search movies with your favorite actors.
+The main feature is that you can search by actors that starred together.
+Movies addded to favorites are stored in localStorage.
+
+![MoviesWith](https://user-images.githubusercontent.com/11088992/30818408-265ce4ac-a224-11e7-8fd2-7679ae81e5fe.png)
+![MoviesWith](https://user-images.githubusercontent.com/11088992/30818507-6ca57a46-a224-11e7-804b-431a256cf926.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
