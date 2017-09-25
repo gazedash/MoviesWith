@@ -1,4 +1,4 @@
-MoviesWith is a web service that allows you to quickly search movies with your favorite actors.
+MoviesWith is a web app that allows you to quickly search movies with your favorite actors.
 The main feature is that you can search by actors that starred together.
 Movies addded to favorites are stored in localStorage.
 
