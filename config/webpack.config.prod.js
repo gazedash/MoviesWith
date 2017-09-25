@@ -228,6 +228,7 @@ module.exports = {
             loader: "awesome-typescript-loader",
             options: {
               transpileOnly: false,
+              useBabel: true,
               reportFiles: ["src/**/*.{ts,tsx}"]
             }
           }
