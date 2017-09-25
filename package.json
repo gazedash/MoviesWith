@@ -55,7 +55,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "firebase deploy"
   },
   "jest": {
     "globals": {
@@ -64,8 +66,12 @@
         "useBabelrc": true
       }
     },
-    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
-    "setupFiles": ["<rootDir>/config/polyfills.js"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.(ts|tsx|js)",
       "<rootDir>/src/**/?(*.)(spec|test).(ts|tsx|js)"
@@ -78,17 +84,26 @@
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
   },
   "babel": {
-    "presets": ["react-app"]
+    "presets": [
+      "react-app"
+    ]
   },
-  "eslintConfig": {
-  },
+  "eslintConfig": {},
   "devDependencies": {
     "@types/jest": "^20.0.8",
     "@types/lodash": "^4.14.74",
@@ -99,6 +114,7 @@
     "@types/react-redux": "^5.0.8",
     "@types/reselect": "^2.2.0",
     "awesome-typescript-loader": "^3.2.3",
+    "firebase-tools": "^3.12.0",
     "ts-jest": "^21.0.1",
     "tslint": "^5.7.0",
     "tslint-config-prettier": "^1.5.0",
