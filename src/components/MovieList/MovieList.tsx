@@ -44,6 +44,7 @@ class MovieList extends React.Component<Props> {
         >).map(({ poster_path: image, title, id, fav, credit_id = "" }) => {
           return (
             <Movie
+              id={id}
               fav={fav}
               onFav={() => this.handleFav(id)}
               key={id + credit_id}

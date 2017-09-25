@@ -3,6 +3,7 @@ import fav from "../../assets/ic_favorite_border_black_24px.svg";
 import "./Movie.css";
 
 interface Props {
+  id?: number | null;
   image?: string | null;
   title?: string;
   fav?: boolean;
@@ -19,9 +20,14 @@ class Movie extends React.Component<Props> {
     return `Movie-hide ${this.props.fav ? "Movie-show" : ""}`;
   }
 
+  get url() {
+    const { id } = this.props;
+    return id ? `https://themoviedb.org/movie/${id}` : null;
+  }
+
   render() {
     return (
-      <div className="Movie">
+      <a className="Movie" href={this.url as string} target={"_blank"}>
         <div className="Movie-hide-absolute">
           <img
             onClick={this.props.onFav}
@@ -33,7 +39,7 @@ class Movie extends React.Component<Props> {
         {this.source && (
           <img alt="" className={"MovieImage"} src={this.source} />
         )}
-      </div>
+      </a>
     );
   }
 }
