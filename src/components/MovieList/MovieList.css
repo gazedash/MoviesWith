@@ -4,6 +4,7 @@
   flex-direction: row;
   /* make scroll great again */
   /* header, app padding */
+  justify-content: center;
   max-height: calc(100vh - 112px - 20px);
   overflow-y: scroll;
 }
