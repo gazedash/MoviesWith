@@ -1,24 +1,31 @@
 .AppScreen {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
-.ActorHeader {
-    display: flex;
-    justify-content: space-between;
+.ActorTabs {
+  display: flex;
+  overflow-x: auto;
+}
+.Actor {
+  color: #555;
+  display: flex;
+  cursor: pointer;
+}
+.Actor-active {
+  color: black;
 }
 .AppScreen-search {
-    display: flex;
+  display: flex;
 }
 .AppScreen-controls {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
-.AppScreen-header {
-    display: flex;
-    padding: 10px;
+.AppScreen-left-header {
+  display: flex;
+  padding: 10px;
 }
-.AppScreen-tabs {
-    display: flex;
-    /* justify-content: flex-start; */
-    margin: 0 25%;
+.AppScreen-content-type-tabs {
+  display: flex;
+  margin: 0 25%;
 }
