@@ -21,3 +21,5 @@ yarn-debug.log*
 yarn-error.log*
 .history/
 .vscode/
+lib
+src/api/secret.ts
