@@ -2,7 +2,6 @@ import { Dispatch } from "redux";
 import { IState, Actor } from "../reducers";
 import * as api from "../../api";
 import { ThunkAction } from "redux-thunk";
-import { createAction, ComplexActionCreator1 } from "redux-act";
 
 export class FetchActor {
   type = "FETCH_ACTOR";
@@ -70,12 +69,15 @@ export class FetchNext {
   action() {
     return async (dispatch: Dispatch<{}>, getState: () => IState) => {
       const { current, searchParams, actors, showFavs, type } = getState();
-      if (!showFavs || type === "movie") {
+      if (!showFavs && type === "movie") {
         const lastId = actors.length - 1;
         let { id = null } = actors[lastId];
         id = current ? current : id;
         const ids = (id || "").toString();
         const { total_pages = 1, page = 1 } = searchParams[ids] || {};
+        console.log('====================================');
+        console.log(searchParams[ids], total_pages > page && id, (total_pages > page) && id);
+        console.log('====================================');
         if (total_pages > page && id) {
           const args = { with_cast: ids, page: page + 1, setCurrent: false };
           dispatch({ type: this.type, ...args });
