@@ -81,7 +81,7 @@ class AppScreen extends React.Component<Props> {
               )
             }
           >
-            {name}
+            <h5 className={"Actor-name"}>{name}</h5>
           </div>
           <Button
             onClick={() =>
