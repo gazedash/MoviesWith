@@ -55,5 +55,10 @@
     "reportFiles": [
       "src/**/*.{ts,tsx}"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
 }
