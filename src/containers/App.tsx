@@ -12,7 +12,8 @@ import {
 import { debounce } from "lodash";
 import {
   actorsMoviesSelectorGlobal,
-  favMoviesSelector
+  favMoviesSelector,
+  currentActorSelector
 } from "../store/selectors";
 import {
   FetchMovies,
@@ -59,8 +60,10 @@ const mapStateToProps: MapStateToProps<{}, {}> = (state: IState, ownProps) => {
     current: state.current,
     shouldLoadByAll: state.shouldLoadByAll,
     shouldShowFavs: state.showFavs,
-    movies: favMoviesSelector(state),
-    actors: actorsMoviesSelectorGlobal(state),
+    favMovies: favMoviesSelector(state),
+    activeMovies: actorsMoviesSelectorGlobal(state),
+    currentActor: currentActorSelector(state),
+    actors: state.actors,
     fav: state.current,
     types: state.types,
     type: state.type

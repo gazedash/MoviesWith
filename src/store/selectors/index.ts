@@ -68,19 +68,22 @@ export const allActorsInCastMovies = (
   fav: { [id: number]: boolean } = {}
 ) => {
   const actor = actors && actors.length >= 1 ? actors[actors.length - 1] : null;
-  const name = actors.map(it => it.name).join(", ");
-  if (actor) {
-    actor.names = name;
-  }
   if (actor) {
     const moviesFiltered = map(
       movie => ({ fav: fav[movie.id], ...movie }),
       filter(movie => isEveryActorInCast(movie, actors), movies)
     );
-    return [{ actor, movies: moviesFiltered }];
+    // return { actor, movies: moviesFiltered };
+    return moviesFiltered;
   }
   return <ActorMovies[]>[];
 };
+
+export const currentActorSelector = createSelector(
+  ({ current }) => current,
+  ({ actors }) => actors,
+  (current, actors) => actors.find(({ id }: Actor) => id === current)
+);
 
 const allActorsInCastMoviesSelector = createSelector(
   ({ actors }) => actors,
@@ -93,32 +96,28 @@ const actorsMoviesSelector = createSelector(
   ({ actors }) => actors,
   favMoviesOrMoviesSelector,
   ({ fav }) => fav,
-  (actors, movies, fav) => actorsMovies(actors, movies, fav)
+  currentActorSelector,
+  (actors, movies, fav, currentActor) =>
+    actorsMovies(actors, movies, fav, currentActor)
 );
 
 export const actorsMovies = (
   actors = <Actor[]>[],
   movies = <MovieType[]>[],
-  fav: { [id: number]: boolean } = {}
+  fav: { [id: number]: boolean } = {},
+  currentActor: Actor
 ) => {
-  const res = reduce(
-    (actorsArray: ActorMovies[], actor: Actor) => {
-      const { id = 0 } = actor || {};
-      if (Number.isFinite(id)) {
-        const moviesFiltered = map(
-          movie => ({ fav: fav[movie.id], ...movie }),
-          filter(movie => isActorInCast(movie, id), movies)
-        );
-        if (!isEmpty(moviesFiltered)) {
-          actorsArray.push({ actor, movies: moviesFiltered });
-        }
-      }
-      return actorsArray;
-    },
-    [],
-    actors
-  );
-  return res;
+  const id = currentActor ? currentActor.id : 0;
+  if (Number.isFinite(id)) {
+    const moviesFiltered = map(
+      movie => ({ fav: fav[movie.id], ...movie }),
+      filter(movie => isActorInCast(movie, id), movies)
+    );
+    if (!isEmpty(moviesFiltered)) {
+      return moviesFiltered;
+    }
+  }
+  return [];
 };
 
 export const actorsMoviesSelectorGlobal = (state: IState) =>

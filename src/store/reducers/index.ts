@@ -21,8 +21,6 @@ export interface Actor {
   id: number;
   profile_path: string | null;
   name: string;
-  // for cases when showing movies by all actors
-  names: string;
 }
 export interface IState {
   movies: Array<MovieType>;
