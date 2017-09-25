@@ -106,18 +106,18 @@ class AppScreen extends React.Component<Props> {
                 type="text"
                 ref={input => (this.input = input)}
               />
-              <Button onClick={this.onClick as () => void} item={"go"} />
+              <Button onClick={this.onClick as () => void} item={"Go"} />
             </div>
             <div className={"AppScreen-controls"}>
               {!this.props.shouldShowFavs && (
                 <Button
-                  item={"by all actors only"}
+                  item={"with all actors"}
                   onClick={this.props.switchByAll}
                   active={this.props.shouldLoadByAll}
                 />
               )}
               <Button
-                item={"favlist"}
+                item={"favorites"}
                 onClick={this.props.showFavs}
                 active={this.props.shouldShowFavs}
               />
