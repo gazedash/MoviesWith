@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   /* make scroll great again */
-  max-height: 90vh;
+  /* header, app padding */
+  max-height: calc(100vh - 112px - 20px);
   overflow-y: scroll;
 }
