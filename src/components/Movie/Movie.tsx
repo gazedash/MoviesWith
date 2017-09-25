@@ -4,6 +4,7 @@ import "./Movie.css";
 
 interface Props {
   id?: number | null;
+  type?: string;
   image?: string | null;
   title?: string;
   fav?: boolean;
@@ -21,8 +22,8 @@ class Movie extends React.Component<Props> {
   }
 
   get url() {
-    const { id } = this.props;
-    return id ? `https://themoviedb.org/movie/${id}` : null;
+    const { id, type = 'movie' } = this.props;
+    return id ? `https://themoviedb.org/${type}/${id}` : null;
   }
 
   render() {

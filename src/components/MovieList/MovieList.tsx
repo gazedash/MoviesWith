@@ -41,9 +41,10 @@ class MovieList extends React.Component<Props> {
       >
         {(this.props.items as Array<
           MovieType
-        >).map(({ poster_path: image, title, id, fav, credit_id = "" }) => {
+        >).map(({ poster_path: image, title, id, fav, credit_id = "", media_type }) => {
           return (
             <Movie
+              type={media_type}
               id={id}
               fav={fav}
               onFav={() => this.handleFav(id)}
