@@ -92,10 +92,13 @@ export const type = (state = "movie", { payload = "movie" } = {}) => {
 
 export const searchParam = (
   state = {},
-  { payload: { ids = "", searchParams = {} } = {} } = {}
+  { payload: { ids = "", searchParams = <SearchParams> {} } = {} } = {}
 ) => {
+  if ((searchParams.total_pages && searchParams.page)) {
+    return { ...state, [ids]: searchParams };
+  }
+  return state;
   // return assocPath([ids], searchParams, state);
-  return { ...state, [ids]: searchParams };
 };
 
 export const fav = (
